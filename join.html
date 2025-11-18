@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Avg Run Club — Join</title>
+  <style>
+    :root{--accent:#ff6b6b;--muted:#6b7280;--max:720px}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#071024;color:#eef6ff}
+    .wrap{max-width:var(--max);margin:30px auto;padding:20px}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    form{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+    label{display:block;font-size:13px;margin-top:12px;color:#dff0ff}
+    input, select, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-top:6px;background:transparent;color:inherit}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{background:var(--accent);border:0;padding:12px;border-radius:10px;color:#111;font-weight:800;margin-top:14px;cursor:pointer}
+    .note{font-size:13px;color:var(--muted);margin-top:8px}
+    .success{background:#0b3; padding:12px;border-radius:8px;color:#012;display:none;margin-top:12px}
+    @media (max-width:600px){.grid2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html" style="color:#eaf2ff;text-decoration:none;font-weight:700">← Home</a>
+      <h1 style="margin:0;font-size:20px">Become a member</h1>
+    </header>
+
+    <form id="joinForm" onsubmit="return handleSubmit(event)">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ffd6d6,#ff6b6b);display:flex;align-items:center;justify-content:center;font-weight:800;color:#081">AR</div>
+        <div>
+          <div style="font-weight:700">Avg Run Club Membership</div>
+          <div class="note">Choose a plan and complete signup. This is a mock payment flow — no real charges.</div>
+        </div>
+      </div>
+
+      <label for="name">Full name</label>
+      <input id="name" name="name" required minlength="2" placeholder="Priya Sharma" />
+
+      <div class="grid2">
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required placeholder="you@example.com"/>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" required pattern="\\d{7,15}" placeholder="e.g. 9876543210"/>
+        </div>
+      </div>
+
+      <label for="plan">Plan</label>
+      <select id="plan" name="plan">
+        <option value="free">Free — Intro sessions only</option>
+        <option value="monthly">Monthly — ₹299 / month</option>
+        <option value="annual">Annual — ₹2499 / year (save)</option>
+      </select>
+
+      <label for="address">Address (optional)</label>
+      <textarea id="address" name="address" rows="2" placeholder="City, State"></textarea>
+
+      <div style="display:flex;gap:12px;align-items:center;margin-top:10px">
+        <input type="checkbox" id="agree" required />
+        <label for="agree" style="margin:0">I agree to club rules & safety guidelines</label>
+      </div>
+
+      <button class="btn" type="submit">Complete signup (mock)</button>
+
+      <div id="successBox" class="success">Thanks — your membership request is submitted. Check your email for details (mock).</div>
+    </form>
+  </div>
+
+  <script>
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      // basic validation already handled by HTML attributes
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        plan: form.plan.value,
+        address: form.address.value.trim()
+      };
+      // store to localStorage as mock "memberships"
+      const mem = JSON.parse(localStorage.getItem('members')||'[]');
+      mem.push(Object.assign({id: 'm_'+Date.now(), created: new Date().toISOString()}, data));
+      localStorage.setItem('members', JSON.stringify(mem));
+      document.getElementById('successBox').style.display='block';
+      form.reset();
+      // in real app: call backend API, validate payment, send emails
+      return false;
+    }
+  </script>
+</body>
+</html>
