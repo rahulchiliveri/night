@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Avg Run Club — Home</title>
+  <meta name="description" content="Avg Run Club — community runs, events, and training for all levels." />
+  <style>
+    :root{
+      --accent:#ff6b6b;
+      --muted:#6b7280;
+      --bg: #0f172a;
+      --card:#0b1220;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      --max:1100px;
+      --gap:18px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:#e6eef8;
+      background: linear-gradient(180deg,#071024 0%, #071a2a 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .container{max-width:var(--max);margin:36px auto;padding:24px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit;
+    }
+    .logo{
+      width:58px;height:58px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffa07a);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:#111;
+      box-shadow:0 8px 20px rgba(255,107,107,0.12);
+      font-size:20px;
+    }
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+    nav a.active{color:var(--accent)}
+    .hero{
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+      padding:28px;border-radius:18px;backdrop-filter: blur(6px);
+    }
+    .hero h1{font-size:34px;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      background:var(--accent);border:0;padding:12px 16px;border-radius:12px;color:#111;font-weight:700;
+      cursor:pointer;box-shadow:0 8px 20px rgba(255,107,107,0.12);
+    }
+    .btn.alt{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600;}
+    .stats{
+      display:flex;gap:14px;margin-top:18px;
+    }
+    .stat{background:var(--glass);padding:12px;border-radius:12px;min-width:110px;text-align:center}
+    .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:22px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border-radius:14px;padding:14px;
+    }
+    .card h3{margin:8px 0 6px}
+    .card p{color:var(--muted);margin:0;font-size:14px}
+    footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center}
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .card-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      nav{display:none}
+      .card-grid{grid-template-columns:1fr}
+      .logo{width:48px;height:48px}
+      .hero h1{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">
+        <div class="logo">AR</div>
+        <div>
+          <div style="font-weight:700">Avg Run Club</div>
+          <div style="font-size:12px;color:var(--muted)">Community • Training • Events</div>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="events.html">Events</a>
+        <a href="join.html">Join</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-heading">
+        <div>
+          <h1 id="hero-heading">Run together. Get stronger. Have fun.</h1>
+          <p>Avg Run Club brings together runners of all levels — weekly group runs, coached training, community events and socials. Join us for weekly meet-ups, timed trail runs, and friendly challenges.</p>
+          <div class="cta-row">
+            <button class="btn" onclick="location.href='events.html'">See upcoming events</button>
+            <button class="btn alt" onclick="location.href='join.html'">Become a member</button>
+          </div>
+
+          <div class="stats" aria-hidden="true">
+            <div class="stat">
+              <div style="font-weight:800;font-size:18px">+120</div>
+              <div style="font-size:12px;color:var(--muted)">Active members</div>
+            </div>
+            <div class="stat">
+              <div style="font-weight:800;font-size:18px">2 / wk</div>
+              <div style="font-size:12px;color:var(--muted)">Group runs</div>
+            </div>
+            <div class="stat">
+              <div style="font-weight:800;font-size:18px">Free</div>
+              <div style="font-size:12px;color:var(--muted)">Intro session</div>
+            </div>
+          </div>
+        </div>
+
+        <aside style="padding:18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);">
+          <h3 style="margin:0 0 6px">Next run — Sat, Nov 22</h3>
+          <p style="color:var(--muted);margin:0 0 12px">Park Loop • 6:30 AM • All paces welcome • 5 km & 10 km groups</p>
+          <button class="btn" onclick="location.href='events.html#park-loop'">RSVP</button>
+          <div style="margin-top:14px;font-size:13px;color:var(--muted)">Tip: Bring water and wear reflective gear if early morning.</div>
+        </aside>
+      </section>
+
+      <section style="margin-top:26px">
+        <h2 style="margin:0 0 12px">What we offer</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Weekly coached runs</h3>
+            <p>Structured intervals, pacing drills and progressive sessions with experienced coaches.</p>
+          </article>
+          <article class="card">
+            <h3>Community events</h3>
+            <p>Monthly trail runs, fun runs, and social meetups to strengthen the community.</p>
+          </article>
+          <article class="card">
+            <h3>Beginner friendly</h3>
+            <p>New to running? Our programs include walk–run progressions and technique tips.</p>
+          </article>
+        </div>
+      </section>
+
+      <section style="margin-top:26px">
+        <h2 style="margin:0 0 12px">Member spotlight</h2>
+        <div class="card" style="display:flex;gap:12px;align-items:center">
+          <img src="https://picsum.photos/seed/runner/160/100" alt="" style="width:160px;height:100px;object-fit:cover;border-radius:10px">
+          <div>
+            <div style="font-weight:700">Asha R.</div>
+            <div style="color:var(--muted);font-size:14px">From couch to 10K in 12 weeks — with the club's beginner program.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Avg Run Club — Built with ❤️ • <a href="contact.html" style="color:var(--muted);text-decoration:underline">Contact</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Simple active nav highlight
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(a => {
+      if (location.pathname.endsWith(a.getAttribute('href'))) {
+        a.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
